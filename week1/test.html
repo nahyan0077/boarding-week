@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling</title>
+</head>
+<body>
+    <div id="parent">
+        <button id="child">Click Me</button>
+    </div>
+
+    <div id="main-list" style="margin-top: 10px;" >
+        <li class="list" >List 1</li>
+        <li class="list" >List 2</li>
+    </div>
+
+    <button id="btn" > Add list </button>
+
+    <script>
+        document.getElementById('parent').addEventListener('click', () => {
+            console.log('Parent clicked');
+        },true);
+
+        document.getElementById('parent').addEventListener('click', () => {
+            console.log('Child clicked');
+        });
+        document.getElementById('child').addEventListener('click', () => {
+            console.log('child  clicked---->');
+        })
+        const lists = document.getElementById('main-list')
+        document.getElementById('btn').addEventListener('click', () => {
+            const newList = document.createElement('li')
+            newList.textContent = `Item ${lists.children.length + 1}`
+            lists.appendChild(newList)
+        })
+
+
+
+
+    </script>
+</body>
+</html>
