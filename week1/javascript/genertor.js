@@ -55,3 +55,19 @@ const gen3 = infinite()
 console.log(gen3.next())
 console.log(gen3.next())
 console.log(gen3.next())
+
+console.log("=======--------========");
+
+function* infinitGen () {
+    let x = -1
+    while (true) {
+        x = x + 2
+        yield x
+    }
+}
+
+const infGen = infinitGen()
+
+console.log(infGen.next());
+console.log(infGen.next());
+console.log(infGen.next());
