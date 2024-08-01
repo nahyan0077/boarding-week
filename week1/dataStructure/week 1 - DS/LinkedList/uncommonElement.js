@@ -53,28 +53,51 @@ console.log(l1.head);
 
 
 
-function uncommon(list1, list2) {
+// function uncommon(list1, list2) {
+//     let l1 = list1.head
+//     let l2 = list2.head
+//     let uncommon = new Set()
+//     let visitted = new Set()
+//     while (l1) {
+//         uncommon.add(l1.value)
+//         visitted.add(l1.value)
+//         l1 = l1.next
+//     }
+//     while (l2) {
+//         if (visitted.has(l2.value)) {
+//             uncommon.delete(l2.value)
+//         }else{
+//             uncommon.add(l2.value)
+//             visitted.add(l2.value)
+//         }
+//         l2 = l2.next
+//     }
+//     console.log( [...uncommon])
+//     return
+// }   
+
+// uncommon(l1,l2)
+
+function uncommon1(list1, list2) {
     let l1 = list1.head
     let l2 = list2.head
-    let uncommon = new Set()
+    let common = new Set()
     let visitted = new Set()
     while (l1) {
-        uncommon.add(l1.value)
+        common.add(l1.value)
         visitted.add(l1.value)
         l1 = l1.next
     }
     while (l2) {
         if (visitted.has(l2.value)) {
-            uncommon.delete(l2.value)
+            common.delete(l2.value)
         }else{
-            uncommon.add(l2.value)
             visitted.add(l2.value)
+            common.add(l2.value)
         }
         l2 = l2.next
     }
-    console.log( [...uncommon])
-    return
-}   
+    return common
+}
 
-uncommon(l1,l2)
-
+console.log(uncommon1(l1,l2))

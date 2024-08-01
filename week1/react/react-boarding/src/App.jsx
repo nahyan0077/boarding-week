@@ -13,6 +13,8 @@ import UseRefExample from "./components/UseRefExample";
 import UseMemo from "./components/UseMemo";
 import { LayoutEffect } from "./components/LayoutEffect";
 import { InsertionEffect } from "./components/InsertionEffect";
+import Debounce from "./components/Debounce";
+import ForwardRef from "./components/ForwardRef";
 // import { lazy, Suspense, useState } from "react";
 // const Lazy1 = lazy(() => import('./components/Counter'))
 // const Lazy2 = lazy(() => import('./components/UseEffect'))
@@ -37,7 +39,9 @@ function App() {
       {/* <Problem1 /> */}
       {/* <UseMemo /> */}
       {/* <LayoutEffect /> */}
-      <InsertionEffect />
+      {/* <InsertionEffect /> */}
+      <Debounce />
+      {/* <ForwardRef /> */}
 
       {/* <button onClick={() => setShowComponent1(true)}>Load Component 1</button>
       <button onClick={() => setShowComponent2(true)}>Load Component 2</button>

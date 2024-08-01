@@ -74,7 +74,7 @@ class LinkedList {
         let fast = this.head
         while (fast && fast.next) {
             slow = slow.next
-            fast = fast.next
+            fast = fast.next.next
         }
         let prev = null
         let curr = slow.next
@@ -114,3 +114,35 @@ console.log(li.checkPalindrom())
 console.log(li.checkPalindrom1())
 
 console.log(li.getSize())
+
+function checkPalindrom(list) {
+    let head = list.head
+    let slow = head
+    let fast = head
+    while (fast && fast.next) {
+        slow = slow.next
+        fast = fast.next.next
+    }
+    let prev = null
+    console.log(slow.value);
+    let curr = slow.next
+    while (curr) {
+        let temp = curr.next
+        curr.next = prev
+        prev = curr
+        curr = temp
+    }
+    let p1 = head
+    let p2 = prev
+    while (p2) {
+        if (p1.value != p2.value) {
+            return false
+        }
+        p1 = p1.next
+        p2 = p2.next
+    }
+    return true
+}
+
+
+console.log(checkPalindrom(li))

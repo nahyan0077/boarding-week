@@ -22,3 +22,22 @@ console.log(obj1);
 
 //
 
+
+let proObj = {
+    name: "nahyan",
+    age: 24
+}
+
+//by restricting Object.create(null) we can restrict prototype pollution
+
+// let proObj = Object.create(null)
+// proObj.name = "nahyan",
+// proObj.age = 24
+
+Object.prototype.polluted = "you are polluted"
+
+console.log(proObj.hasOwnProperty("name"));
+
+console.log(proObj.polluted);
+
+console.log(proObj.hasOwnProperty("polluted"));

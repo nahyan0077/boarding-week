@@ -6,8 +6,10 @@ let a = 10
 let b = a
 b = 50
 
-// console.log(a);
-// console.log(b);
+console.log(a);
+console.log(b);
+
+console.log("=====-----========");
 
 //non-primitive ----> mutable
 
@@ -16,9 +18,10 @@ let ob2 = ob1
 
 ob2.a = "new a"
 
-// console.log(ob1);
-// console.log(ob2);
+console.log(ob1);
+console.log(ob2);
 
+console.log("=====-----========");
 // ======================================
 //let var const
 

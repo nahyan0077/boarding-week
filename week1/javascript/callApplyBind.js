@@ -1,8 +1,8 @@
 let obj1 = {
     name: "nahyan",
     age: 24,
-    present: function (age, salary) {
-        console.log(`${this.name} is present ------>${age}  , ${salary}`);
+    present: function (text, salary) {
+        console.log(`${this.name} is present ------>${text}  , ${salary}`);
     },
 }
 let obj2 = {

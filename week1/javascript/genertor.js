@@ -71,3 +71,25 @@ const infGen = infinitGen()
 console.log(infGen.next());
 console.log(infGen.next());
 console.log(infGen.next());
+
+
+console.log("=======-----=======");
+
+function* odd(n) {
+    let i = 1
+    while (i <= n) {
+        if (i % 2 !== 0) {
+            yield i
+        }
+        i++
+    }
+}
+
+const od = odd(10)
+
+let res = od.next()
+
+while (!res.done) {
+    console.log(res.value );
+    res = od.next()
+}

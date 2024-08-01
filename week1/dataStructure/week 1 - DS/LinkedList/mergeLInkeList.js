@@ -60,28 +60,55 @@ li1.append(7)
 console.log(li.getSize())
 console.log(li1.getSize())
 
-const mergeLinkedList = (list1, list2) => {
-    const newList = new LinkedList()
-    l1 = list1.head
-    l2 = list2.head
+// const mergeLinkedList = (list1, list2) => {
+//     const newList = new LinkedList()
+//     l1 = list1.head
+//     l2 = list2.head
+//     while (l1 || l2) {
+//         if (!l2) {
+//             newList.append(l1.value)
+//             l1 = l1.next
+//         }else if(!l1){
+//             newList.append(l2.value)
+//             l2 = l2.next
+//         }else{
+//             if (l1.value < l2.value) {
+//                 newList.append(l1.value)
+//                 l1 = l1.next
+//             }else{
+//                 newList.append(l2.value)
+//                 l2 = l2.next
+//             }
+//         }
+//     }
+//     return newList
+// }
+
+// mergeLinkedList(li, li1).print()
+
+
+function mergeList (list1, list2){
+    let l1 = list1.head
+    let l2 = list2.head
+    let mergeList = new LinkedList()
     while (l1 || l2) {
-        if (!l2) {
-            newList.append(l1.value)
-            l1 = l1.next
-        }else if(!l1){
-            newList.append(l2.value)
+        if (!l1) {
+            mergeList.append(l2.value)
             l2 = l2.next
+        }else if(!l2){
+            mergeList.append(l1.value)
+            l1 = l1.next
         }else{
             if (l1.value < l2.value) {
-                newList.append(l1.value)
+                mergeList.append(l1.value)
                 l1 = l1.next
             }else{
-                newList.append(l2.value)
+                mergeList.append(l2.value)
                 l2 = l2.next
             }
         }
     }
-    return newList
+    return mergeList
 }
 
-mergeLinkedList(li, li1).print()
+mergeList(li,li1).print();

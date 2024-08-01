@@ -100,3 +100,21 @@ li.print()
 li.reverseIndex(2)
 
 li.print()
+
+
+function reverse(list) {
+    let prev = null
+    let curr = list.head
+    while (curr) {
+        let temp = curr.next
+        curr.next = prev
+        prev = curr
+        curr = temp
+    }
+    console.log(prev.value);
+    list.head = prev
+}
+
+reverse(li)
+
+li.print()

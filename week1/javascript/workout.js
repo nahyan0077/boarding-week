@@ -3,8 +3,6 @@
 let today = new Date()
 let xmas = new Date(2024, 11,25)
 
-
-
 console.log(xmas);
 
 let diff = Math.abs(xmas - today)
@@ -73,3 +71,40 @@ function flattenStack (arr) {
 }
 
 console.log(flattenStack(nestedArray));
+
+
+console.log("====================");
+
+
+const stringArr = ["apple", "banana", "orange", "kiwi", "strawberry"];
+
+const lrg = stringArr.reduce((acc, curr) =>{
+    if (curr.length > acc.length) {
+        acc = curr
+    }
+    return acc
+},'')
+
+console.log(lrg);
+
+const sml = stringArr.reduce((acc, curr) =>{
+    if (curr.length < acc.length) {
+        acc = curr
+    }
+    return acc
+},stringArr[0])
+
+console.log(sml);
+
+
+console.log('=================');
+
+let arr1 = [3,5,32,6,2,6,6,246,7,3]
+
+console.log(arr1);
+
+console.log(arr1);
+
+let sp = arr1.splice(14)
+
+console.log(sp);
