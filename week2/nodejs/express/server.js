@@ -6,7 +6,11 @@ const path = require('path');
 const cluster = require('cluster');
 const os = require('os');
 const session = require('express-session');
+const {Worker} = require('worker_threads')
 
+const {connect} = require('./connect');
+
+connect()
 
 const app = express()
 
@@ -118,19 +122,25 @@ app.get('/session-view',(req,res) => {
 
 
 //child process
-
 if (!cluster.isMaster) {
-    console.log(`This is master ==>> ${process.pid} process`);
+
+    console.log(`This is master ==>> ${process.pid} `);
 
     for(let i = 0; i < os.cpus().length; i++){
         cluster.fork()
     }
 
     cluster.on('exit' , (worker) =>{
-        console.log(`process ${worker.process.pid}`);
+        console.log(`process ${worker.process.pid} died`);
     })
 
 }else{
+
+    const worker = new Worker('./compute.js')
+
+    worker.on('message', (msg) => {
+        console.log("This is the resutl :   "+ msg );
+    })
 
     
     app.listen(PORT,() => {
