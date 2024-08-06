@@ -8,7 +8,7 @@ class minHeap {
     buildHeap(arr){
         this.heap = arr
         let n = this.heap.length
-        for(let i = Math.floor(n/2) - 1; i >= 0; i--){
+        for(let i = Math.floor((n/2) - 1); i >= 0; i--){
             this.heapifyDown(i,n)
         }
     }
