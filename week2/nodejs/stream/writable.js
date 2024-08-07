@@ -1,10 +1,21 @@
+// const fs = require('fs');
+
+// const writableStream = fs.createWriteStream('writable.txt')
+
+// writableStream.write("This is first   ---- >>>  ")
+// writableStream.write("now its second")
+
+// writableStream.on('finish', () =>{
+//     console.log('all writting finished...');
+// })
+
+
 const fs = require('fs');
 
-const writableStream = fs.createWriteStream('writable.txt')
+const wstream = fs.createWriteStream('writtable.txt')
 
-writableStream.write("This is first   ---- >>>  ")
-writableStream.write("now its second")
+wstream.write("new one this is adding 11,")
 
-writableStream.on('finish', () =>{
-    console.log('all writting finished...');
+wstream.on('finish',() => {
+    console.log("all finish..."); 
 })

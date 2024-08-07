@@ -7,8 +7,8 @@ const cluster = require('cluster');
 const os = require('os');
 const session = require('express-session');
 const {Worker} = require('worker_threads')
-
 const {connect} = require('./connect');
+const jwtRouter = require('./router/newRouter');
 
 connect()
 
@@ -24,6 +24,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }))
+
+
+app.use('/valid',jwtRouter)
 
 
 app.get('/',(req,res) => {
@@ -108,6 +111,24 @@ app.get('/safe-cookie', (req,res) => {
     res.send("safe cookie created")
 })
 
+app.get('/new-cookie',(req,res) => {
+    let data = {
+        name: "nahyan",
+        age: 25
+    }
+    res.cookie('mycookie',JSON.stringify(data))
+    res.send("new cookie set")
+})
+
+app.get('/get-cookie',(req,res) => {
+    let cookieData = req.cookies.mycookie
+    console.log(cookieData);
+    
+    res.json({cookieData})
+    // res.send("working")
+})
+
+
 
 //session
 
@@ -124,23 +145,36 @@ app.get('/session-view',(req,res) => {
 //child process
 if (!cluster.isMaster) {
 
-    console.log(`This is master ==>> ${process.pid} `);
+    // console.log(`This is master ==>> ${process.pid} `);
 
-    for(let i = 0; i < os.cpus().length; i++){
+    // for(let i = 0; i < os.cpus().length; i++){
+    //     cluster.fork()
+    // }
+
+    // cluster.on('exit' , (worker) =>{
+    //     console.log(`process ${worker.process.pid} died`);
+    // })
+
+    const cpu = os.cpus()
+
+    for(let i = 0; i < cpu.length; i++){
         cluster.fork()
     }
 
-    cluster.on('exit' , (worker) =>{
-        console.log(`process ${worker.process.pid} died`);
+    cluster.on('exit',(worker)=>{
+        console.log(worker.process.pid + " " + "died");
     })
 
 }else{
 
-    const worker = new Worker('./compute.js')
+    
+    // const worker = new Worker('./compute.js')
 
-    worker.on('message', (msg) => {
-        console.log("This is the resutl :   "+ msg );
-    })
+    // worker.on('message', (msg) => {
+    //     console.log("This is the resutl :   "+ msg );
+    // })
+
+    
 
     
     app.listen(PORT,() => {

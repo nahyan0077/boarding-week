@@ -9,4 +9,4 @@ process.on('message',(msg) =>{
     console.log("from parent--->",msg);
 })
 
-// process.send('message',"to parent")
+process.send("to parent")
