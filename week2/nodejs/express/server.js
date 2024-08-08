@@ -9,8 +9,18 @@ const session = require('express-session');
 const {Worker} = require('worker_threads')
 const {connect} = require('./connect');
 const jwtRouter = require('./router/newRouter');
+// const cronjob = require('./cron');
+const cors = require('cors');
 
 connect()
+// cronjob.start()
+
+const corsOptions ={
+    origin: ['https://www.drop-ship.shop'],
+    methods: 'GET,POST,PUT,PATCH' 
+}
+
+app.use(cors(corsOptions))
 
 const app = express()
 
@@ -143,45 +153,74 @@ app.get('/session-view',(req,res) => {
 
 
 //child process
-if (!cluster.isMaster) {
+// if (!cluster.isMaster) {
 
-    // console.log(`This is master ==>> ${process.pid} `);
+//     // console.log(`This is master ==>> ${process.pid} `);
 
-    // for(let i = 0; i < os.cpus().length; i++){
-    //     cluster.fork()
-    // }
+//     // for(let i = 0; i < os.cpus().length; i++){
+//     //     cluster.fork()
+//     // }
 
-    // cluster.on('exit' , (worker) =>{
-    //     console.log(`process ${worker.process.pid} died`);
-    // })
+//     // cluster.on('exit' , (worker) =>{
+//     //     console.log(`process ${worker.process.pid} died`);
+//     // })
 
-    const cpu = os.cpus()
+//     const cpu = os.cpus()
 
-    for(let i = 0; i < cpu.length; i++){
+//     for(let i = 0; i < cpu.length; i++){
+//         cluster.fork()
+//     }
+
+//     cluster.on('exit',(worker)=>{
+//         console.log(worker.process.pid + " " + "died");
+//     })
+
+// }else{
+
+    
+//     // const worker = new Worker('./compute.js')
+
+//     // worker.on('message', (msg) => {
+//     //     console.log("This is the resutl :   "+ msg );
+//     // })
+
+    
+
+    
+// }
+
+
+
+
+if (!cluster.isMaster) { 
+    
+    const cpu = os.cpus().length
+
+    for(let i = 0; i < cpu; i++){
         cluster.fork()
     }
 
-    cluster.on('exit',(worker)=>{
-        console.log(worker.process.pid + " " + "died");
+    cluster.on('exit',() => {
+        console.log(`${Worker.pid} stopped`);
+        
     })
 
 }else{
 
-    
-    // const worker = new Worker('./compute.js')
+    const worker = new Worker('./compute.js')
 
-    // worker.on('message', (msg) => {
-    //     console.log("This is the resutl :   "+ msg );
-    // })
+    worker.on('message',(msg)=>{
+        console.log(msg,"  from wrker");
+        
+    })
 
-    
-
-    
     app.listen(PORT,() => {
         console.log(`Worker ${process.pid} started at ${PORT}`);
         // console.log(`App listening to the port: ${PORT}`);
-
+    
     })
 }
+
+
 
 
