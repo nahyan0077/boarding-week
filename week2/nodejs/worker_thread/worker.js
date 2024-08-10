@@ -6,7 +6,7 @@
 
 // parentPort.postMessage('This is worker')
 
-const {parentPort} = require('worker_thread');
+const {parentPort} = require('worker_threads');
 
 parentPort.on('message',(msg) => {
     console.log('from parent',msg);
