@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { minus, plus, win } from "../redux/slice";
-import { start} from '../redux/autoSlice'
+import { start } from "../redux/autoSlice";
 
 const Home = () => {
   const data = useSelector((state) => state.count);
   const data1 = useSelector((state) => state.runner);
 
   console.log(data1.run);
-  
-
 
   const dispatch = useDispatch();
 
@@ -28,8 +26,11 @@ const Home = () => {
   };
 
   const handeStart = () => {
-    dispatch(start())
-  }
+    dispatch(start());
+  };
+  let num = 1;
+
+  const [num1, setNum1] = useState(0);
 
   return (
     <div>
@@ -43,12 +44,29 @@ const Home = () => {
       <br />
       <input type="text" onChange={(e) => setText(e.target.value)} />
       <button onClick={handleWin}> 100 </button>
-        <br />
-        <br />
+      <br />
+      <br />
 
-        <button onClick={handeStart} > start </button>
-
-
+      <button onClick={handeStart}> start </button>
+      <h2> {num} </h2>
+      <button
+        onClick={() => {
+          num = num + 1;
+          console.log(num);
+        }}>
+        {" "}
+        normal +{" "}
+      </button>
+      <br />
+      <br />
+      <h2> {num1} </h2>
+      <button
+        onClick={() => {
+          setNum1((num1) => num1 + 1);
+        }}>
+        {" "}
+        state +{" "}
+      </button>
     </div>
   );
 };

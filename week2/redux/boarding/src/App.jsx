@@ -1,13 +1,18 @@
 
 import './App.css'
-import Home from './component/Home'
+import RenderProps from './component/RenderProps'
+// import CallBack from './component/CallBack'
+
+// import Home from './component/Home'
 
 function App() {
 
 
   return (
     <>
-      <Home />
+      {/* <Home /> */}
+      {/* <CallBack /> */}
+      <RenderProps />
     </>
   )
 }

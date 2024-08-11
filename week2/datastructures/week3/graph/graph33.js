@@ -2,12 +2,12 @@ class Graph {
     constructor() {
         this.adjList = {}
     }
-    addVertex(vertex) {
-        if (!this.adjList[vertex]) {
-            this.adjList[vertex] = new Set()
+    addVertex(vertex1){
+        if (!this.adjList[vertex1]) {
+            this.adjList[vertex1] = new Set()
         }
     }
-    addEdge(vertex1, vertex2) {
+    addEdges(vertex1, vertex2){
         if (!this.adjList[vertex1]) {
             this.addVertex(vertex1)
         }
@@ -17,25 +17,19 @@ class Graph {
         this.adjList[vertex1].add(vertex2)
         this.adjList[vertex2].add(vertex1)
     }
-    deleteVertex(vertex) {
+    deleteVertex(vertex){
         if (!this.adjList[vertex]) {
             return null
         }
-        for (let adVer of this.adjList[vertex]) {
-            this.deleteEdge(vertex, adVer)
+        for(let vertx of this.adjList[vertex]){
+            this.deleteEdges(vertx, vertex)
         }
     }
-    deleteEdge(vertex1, vertex2) {
+    deleteEdges(vertex1, vertex2){
         this.adjList[vertex1].delete(vertex2)
         this.adjList[vertex2].delete(vertex1)
     }
-    print() {
-        for (let vertex in this.adjList) {
-            console.log(vertex + "  ---> " + [...this.adjList[vertex]]);
-
-        }
-    }
-    bfs(vertex) {
+    bfs(vertex){
         if (!this.adjList[vertex]) {
             return null
         }
@@ -43,41 +37,25 @@ class Graph {
         let visitted = {}
         visitted[vertex] = true
         while (queue.length) {
+            console.log(visitted)
             let curr = queue.shift()
-            console.log(curr);
-            for (let child of this.adjList[curr]) {
+            console.log(curr)
+            for(let child of this.adjList[curr]){
                 if (!visitted[child]) {
                     queue.push(child)
                     visitted[child] = true
-                }
-            }
-        }
-    }
-    bfs1(vertex){
-        if (!this.adjList[vertex]) {
-            return null
-        }
-        let queue = [vertex]
-        let visitted = {}
-        visitted[vertex] = true
-        while (queue.length) {
-            let curr = queue.shift()
-            console.log(curr);
-            for(let child of this.adjList[vertex]){
-                if (!visitted[child]) {
-                    visitted[child] = true
-                    queue.push(child)
                 }
             }
         }
     }
     dfs(vertex){
-        if (!this.adjList[vertex]) {
+        if ( !this.adjList[vertex] ) {
             return null
         }
-        let stack = [vertex]
+        const stack = [vertex]
         let visitted = {}
         while (stack.length) {
+            console.log(visitted)
             let curr = stack.pop()
             if (!visitted[curr]) {
                 console.log(curr);
@@ -90,14 +68,19 @@ class Graph {
     }
 }
 
+
 const gp = new Graph()
 
-gp.addEdge("A", "B")
-gp.addEdge("B", "C")
-gp.addEdge("C", "A")
+gp.addEdges("A","B")
+gp.addEdges("B","C")
+gp.addEdges("C","D")
+gp.addEdges("D","A")
 
-// gp.bfs('A')
-// gp.bfs1('B')
+// gp.bfs("B")
+
+console.log("--------------");
+
+
 gp.dfs('B')
 
-gp.print()
+console.log(gp) 
