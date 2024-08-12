@@ -9,6 +9,7 @@ const session = require('express-session');
 const {Worker} = require('worker_threads')
 const {connect} = require('./connect');
 const jwtRouter = require('./router/newRouter');
+const queryRouter = require('./router/queryRouter');
 // const cronjob = require('./cron');
 const cors = require('cors');
 
@@ -20,10 +21,10 @@ const corsOptions ={
     methods: 'GET,POST,PUT,PATCH' 
 }
 
-app.use(cors(corsOptions))
 
 const app = express()
 
+app.use(cors(corsOptions))
 app.use(cookieParser())
 app.use(morgan('dev'))
 const PORT = 4000
@@ -37,6 +38,7 @@ app.use(session({
 
 
 app.use('/valid',jwtRouter)
+app.use('/query',queryRouter)
 
 
 app.get('/',(req,res) => {
