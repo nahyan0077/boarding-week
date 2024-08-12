@@ -1,4 +1,4 @@
-class minHeap {
+class maxHeap {
     constructor() {
         this.heap = []
     }
@@ -7,32 +7,32 @@ class minHeap {
     }
     heapifyUp(index){
         let parent = Math.floor((index - 1) / 2)
-        while (index > 0 && this.heap[parent] > this.heap[index]) {
+        while (index > 0 && this.heap[parent] < this.heap[index]) {
             this.swap(index, parent)
             index = parent
             parent = Math.floor((index - 1) / 2)
         }
     }
     heapifyDown(index, size){
-        let small = index
+        let large = index
         let left = 2 * index + 1
         let right = 2 * index + 2
-        if (left < size && this.heap[left] < this.heap[small]) {
-            small = left
+        if (left < size && this.heap[large] < this.heap[left] ) {
+            large = left
         }
-        if (right < size && this.heap[right] < this.heap[small]) {
-            small = right
+        if (right < size && this.heap[large] < this.heap[right] ) {
+            large = right
         }
-        if (small != index) {
-            this.swap(small, index)
-            this.heapifyDown(small, size)
+        if (index != large) {
+            this.swap(index, large)
+            this.heapifyDown(large, size)
         }
     }
     buildHeap(arr){
         this.heap = arr
         let n = this.heap.length
-        for(let i = Math.floor((n/2)-1); i >= 0; i--){
-            this.heapifyDown(i,n)
+        for(let i = Math.floor((n/2) - 1); i >= 0; i--){
+            this.heapifyDown(i,size)
         }
     }
     insert(value){
@@ -40,9 +40,6 @@ class minHeap {
         this.heapifyUp(this.heap.length - 1)
     }
     remove(){
-        if (this.heap == null) {
-            return null
-        }
         let rmv = this.heap[0]
         this.heap[0] = this.heap.pop()
         this.heapifyDown(0, this.heap.length)
@@ -52,19 +49,23 @@ class minHeap {
         let n = this.heap.length
         for(let i = n - 1; i > 0; i--){
             this.swap(i,0)
-            this.heapifyDown(0,i)
+            this.heapifyDown(0, i)
         }
     }
 }
 
-const hp = new minHeap()
+const hp = new maxHeap()
 
-let arr = [5,3,8,1,12,4,9]
+hp.insert(1)
+hp.insert(2)
+hp.insert(3)
+hp.insert(4)
+hp.insert(5)
 
-hp.buildHeap(arr)
-// console.log(hp.remove())
+hp.remove()
 
-// hp.heapSort()
-
+hp.heapSort()
 
 console.log(hp);
+
+

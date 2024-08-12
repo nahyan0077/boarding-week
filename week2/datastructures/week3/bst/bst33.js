@@ -102,3 +102,47 @@ bt.delete(3434)
 
 
 bt.leveOrder()
+
+
+function kthSmallest(root, k) {
+    let count = 0
+    let res = null
+    function DFS(node) {
+        if(!node) return 
+        DFS(node.left)
+        count++
+        if (count == k) {
+            res = node.value
+            return
+        }
+        DFS(node.right)
+    }
+    DFS(root)
+    return res
+}
+
+console.log("kth smallest");
+
+console.log(kthSmallest(bt.root, 2));
+
+
+function treeHeight(root) {
+    if(!root) return 0
+    return Math.max(treeHeight(root.left), treeHeight(root.right)) + 1
+}
+
+console.log("tree height");
+
+console.log(treeHeight(bt.root));
+
+
+function isBalanced(root) {
+    if(!root) return true
+    return Math.abs(treeHeight(root.left) - treeHeight(root.right)) <= 1  && isBalanced(root.left) && isBalanced(root.right)
+}
+
+console.log(isBalanced(bt.root));
+
+
+
+

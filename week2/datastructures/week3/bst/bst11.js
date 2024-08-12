@@ -89,6 +89,7 @@ class BST {
 }
 
 const bt = new BST()
+const bt1 = new BST()
 
 
 bt.insert(34)
@@ -98,6 +99,43 @@ bt.insert(53)
 bt.insert(2)
 bt.insert(56)
 
-bt.delete(34)
+
+bt1.insert(34)
+bt1.insert(76)
+bt1.insert(21)
+bt1.insert(25)
+bt1.insert(53)
+bt1.insert(51)
+bt1.insert(2)
+bt1.insert(56)
+
+// bt.delete(34)
 
 bt.levelOrder()
+
+
+function checkIdentical(root1, root2) {
+    if(!root1, !root2) return true
+    if (!root1 || !root2 || root1.value !== root2.value) {
+        return false
+    }
+    return checkIdentical(root1.left, root2.left) && checkIdentical(root1.right, root2.right)
+}
+
+console.log("check identical tree ====>>", checkIdentical(bt.root, bt1.root));
+
+
+function lowestCommonAncestor(root, n1, n2) {
+    if (!root) return null
+    if (n1 < root.value && n2< root.value) {
+        return lowestCommonAncestor(root.left, n1, n2)
+    }
+    if (n1 > root.value && n2 > root.value) {
+        return lowestCommonAncestor(root.right, n1, n2)
+    }
+    return root.value
+}
+
+
+console.log("LCA ===>   ",lowestCommonAncestor(bt1.root, 56,51));
+
