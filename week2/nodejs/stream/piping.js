@@ -1,4 +1,4 @@
-const fs = require('fs');
+// const fs = require('fs');
 
 // const readableStream = fs.createReadStream('writable.txt',{encoding: 'utf8'})
 // const writableStream = fs.createWriteStream('pipe.txt')
@@ -10,12 +10,23 @@ const fs = require('fs');
 // })
 
 
-const rstream = fs.createReadStream('text.txt',{encoding: 'utf8'})
-const wstream = fs.createWriteStream('writtable.txt')
+// const rstream = fs.createReadStream('text.txt',{encoding: 'utf8'})
+// const wstream = fs.createWriteStream('writtable.txt')
+
+// rstream.pipe(wstream)
+
+// rstream.on('end',()=>{
+//     console.log("all finish");
+    
+// })
+
+const fs = require('fs');
+
+const rstream = fs.createReadStream('test.txt')
+const wstream = fs.createWriteStream('pipped.txt')
 
 rstream.pipe(wstream)
 
 rstream.on('end',()=>{
-    console.log("all finish");
-    
+    console.log("piping commplete");
 })

@@ -10,12 +10,26 @@
 // })
 
 
+// const fs = require('fs');
+
+// const wstream = fs.createWriteStream('writtable.txt')
+
+// wstream.write("new one this is adding 11,")
+
+// wstream.on('finish',() => {
+//     console.log("all finish..."); 
+// })
+
+
+
 const fs = require('fs');
 
-const wstream = fs.createWriteStream('writtable.txt')
+const writeStream = fs.createWriteStream('writable11.txt')
 
-wstream.write("new one this is adding 11,")
+writeStream.write("This is the text added to write")
 
-wstream.on('finish',() => {
-    console.log("all finish..."); 
+writeStream.end()
+
+writeStream.on('finish',() => {
+    console.log("all writting finished");
 })

@@ -31,22 +31,42 @@
 // myEmitter.emit('call-once')
 
 
-const eventEmitter = require('events')
+// const eventEmitter = require('events')
+
+// const event = new eventEmitter()
+
+// event.on('call' ,() =>{
+//     console.log("call event");
+// })
+
+// event.once('once',()=>{
+//     console.log("its once");
+// })
+
+// event.emit('call')   
+// event.emit('call')   
+// event.emit('call')   
+
+// event.emit('once')
+// event.emit('once')
+
+
+const eventEmitter = require('events');
 
 const event = new eventEmitter()
 
-event.on('call' ,() =>{
-    console.log("call event");
+event.on('print',()=>{
+    console.log("event printed");
+    
 })
 
-event.once('once',()=>{
-    console.log("its once");
+event.once("send",()=>{
+    console.log("event send");
 })
 
-event.emit('call')   
-event.emit('call')   
-event.emit('call')   
-
-event.emit('once')
-event.emit('once')
-
+event.emit('print')
+event.emit('print')
+event.emit('send')
+event.emit('send')
+event.emit('send')
+event.emit('print')

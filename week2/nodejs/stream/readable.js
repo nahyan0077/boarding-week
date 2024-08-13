@@ -10,16 +10,29 @@
 //     console.log('all data read');
 // })
 
+// const fs = require('fs');
+
+// const rstream = fs.createReadStream('testvid.mp4')
+
+// rstream.on('data',(chunk) =>{
+//     console.log("chunk length --> ",chunk.length);
+    
+// })
+
+// rstream.on('end',() => {
+//     console.log("all read complete");
+    
+// })
+
+
 const fs = require('fs');
 
-const rstream = fs.createReadStream('testvid.mp4')
+const readStream = fs.createReadStream('test.txt')
 
-rstream.on('data',(chunk) =>{
-    console.log("chunk length --> ",chunk.length);
-    
+readStream.on('data', (chunks) => {
+    console.log(chunks.length);
 })
 
-rstream.on('end',() => {
-    console.log("all read complete");
-    
+readStream.on("end", () => {
+    console.log("all read stream ended");
 })

@@ -4,7 +4,6 @@ const initialState = {
     count : 0
 }
 
-
 const counterSlicer = createSlice ({
     name: "counter",
     initialState,
