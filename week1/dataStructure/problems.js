@@ -19,17 +19,30 @@ let array = [1, 2, 3, 4, 2, 3, 5, 1, 6];
 //we can do it with map set object
 
 
+// function dupHash(arr) {
+//     let map = new Set()
+//     let arr1 = []
+//     for(let num of arr){
+//         if(!map.has(num)){
+//             map.add(num)
+//             arr1.push(num)
+//         }
+//     }
+//     console.log(map)
+//     console.log(arr1)
+// }
+
+// dupHash(array)
+
+
 function dupHash(arr) {
-    let map = new Set()
-    let arr1 = []
-    for(let num of arr){
-        if(!map.has(num)){
-            map.add(num)
-            arr1.push(num)
+    let hash = {}
+    for(let i = 0; i < arr.length; i++){
+        if (!hash[arr[i]]) {
+            hash[arr[i]] = true
         }
     }
-    console.log(map)
-    console.log(arr1)
+    return Object.keys(hash)
 }
 
-dupHash(array)
+console.log(dupHash(array))
