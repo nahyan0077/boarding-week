@@ -29,8 +29,8 @@ const http = require('http');
 const fs = require('fs');
 
 const server = http.createServer((req,res) => {
-    res.writeHead(200,{'Content-Type':'utf-8'})
-    fs.readFile('read.txt',(err, data) => {
+    // res.writeHead(200,{'Content-Type':'text/plain'})
+    fs.readFile('./read.txt',(err, data) => {
         if (err) {
             res.write(err.message)
         }else{
@@ -38,6 +38,12 @@ const server = http.createServer((req,res) => {
         }
         res.end()
     })
+})
+
+fs.readFile('./read.txt','utf8',(err, data) => {
+   if (!err) {
+    console.log(data);
+   }
 })
 
 server.listen(3004,()=>{

@@ -1,6 +1,7 @@
 
 import './App.css'
 import RenderProps from './component/RenderProps'
+import ErrorBoundary from './errorBoundary/ErrorBoundary'
 // import CallBack from './component/CallBack'
 
 // import Home from './component/Home'
@@ -12,7 +13,10 @@ function App() {
     <>
       {/* <Home /> */}
       {/* <CallBack /> */}
+      <ErrorBoundary>
       <RenderProps />
+
+      </ErrorBoundary>
     </>
   )
 }

@@ -2,8 +2,7 @@ class Graph {
     constructor() {
         this.adjList = {}
     }
-
-    addEdges(vertex1, vertex2){
+    addVertex(vertex1, vertex2){
         if (!this.adjList[vertex1]) {
             this.adjList[vertex1] = new Set()
         }
@@ -13,35 +12,28 @@ class Graph {
         this.adjList[vertex1].add(vertex2)
         this.adjList[vertex2].add(vertex1)
     }
-    print(){
-        for (let vertx in this.adjList) {
-            console.log(vertx , "  ---->  ",[...this.adjList[vertx]])
-            
-        }
-    }
-    deleteVertex(vertex){
-        if (!this.adjList[vertex]) {
-            return null
-        }
+    removeVertex(vertex){
         for(let vert of this.adjList[vertex]){
-            this.deleteEdges(vert, vertex)
+            this.removeEdges(vert, vertex)
         }
+        delete this.adjList[vertex]
     }
-    deleteEdges(vertex1, vertex2){
+    removeEdges(vertex1, vertex2){
         this.adjList[vertex1].delete(vertex2)
         this.adjList[vertex2].delete(vertex1)
     }
-    bfs(vertex){
-        if (!this.adjList[vertex]) {
-            return null
+    print(){
+        for(let vertex in this.adjList){
+            console.log(vertex, "  ---->  ", [...this.adjList[vertex]]);
+            
         }
+    }
+    bfs(vertex){
+        if(!this.adjList[vertex]) return null
         let queue = [vertex]
         let visitted = {}
         visitted[vertex] = true
-        
         while (queue.length) {
-            console.log(queue);
-            
             let curr = queue.shift()
             console.log(curr);
             for(let child of this.adjList[curr]){
@@ -50,43 +42,39 @@ class Graph {
                     visitted[child] = true
                 }
             }
+            
         }
     }
     dfs(vertex){
-        if (!this.adjList[vertex]) {
-            return null
-        }
+        if(!this.adjList[vertex]) return null
         let stack = [vertex]
-        
         let visitted = {}
         while (stack.length) {
-            console.log(stack);
-
             let curr = stack.pop()
-            if (!visitted[curr]) {
-                console.log(curr);        
+            if(!visitted[curr]){
                 visitted[curr] = true
-
+                console.log(curr);
                 for(let child of this.adjList[curr]){
                     stack.push(child)
                 }
+                
             }
         }
     }
 }
 
-
 const gp = new Graph()
 
-gp.addEdges("A","B")
-gp.addEdges("A","C")
-gp.addEdges("C","D")
+gp.addVertex("A","B")
+gp.addVertex("A","C")
+gp.addVertex("C","D")
 
+// gp.removeVertex("A")
 
-    
 gp.print()
 
+console.log("---BFS--");
 gp.bfs("A")
-console.log("=======");
 
+console.log("---DFS--");
 gp.dfs("A")
