@@ -13,7 +13,7 @@ class WeightedGraph {
         this.adjList[v2].set(v1,w)
     }
     removeVertex(v){
-        for(let vert of this.adjList[v]){
+        for(let vert of this.adjList[v]){            
             this.removeEdges(vert, v)
         }
     }
@@ -37,3 +37,5 @@ gp.addVertex("D","A", 7)
 
 
 gp.print()
+
+// console.log(gp);
