@@ -212,3 +212,30 @@ function mergeLinkedList(list1, list2) {
 
 const mergedList = mergeLinkedList(list1, list2)
 mergedList.print()
+
+function uncommon(list1, list2) {
+    if (!list1 && !list2) {
+        return null
+    }
+    let visitted = new Set()
+    let uncommon = new Set()
+    let li1 = list1.head
+    while (li1) {
+        visitted.add(li1.value)
+        uncommon.add(li1.value)
+        li1 = li1.next
+    }
+    
+    let li2 = list2.head
+    while (li2) {
+        if (!visitted.has(li2.value)) {
+            uncommon.add(li2.value)
+        }else{
+            uncommon.delete(li2.value)
+        }
+        li2 = li2.next
+    }
+    return [...uncommon]
+}
+
+console.log(uncommon(list1, list2));
