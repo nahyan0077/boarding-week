@@ -8,6 +8,7 @@ import Hoc from './component/Hoc.jsx';
 import Name from './component/Name.jsx';
 import Hoc2 from './component/Hoc2.jsx';
 import Counter from './component/Counter.jsx';
+import UseRef from './component/UseRef.jsx';
 
 
 const EnhancedHome = Hoc(Home)
@@ -28,6 +29,7 @@ function App() {
           <Route path='/' element={<EnhancedHome name="nahyan" /> } />
           <Route path='/home' element={<EnhancedName name="nahyan" /> } />
           <Route path='/counter' element={<Counter /> } />
+          <Route path='/ref' element={<UseRef /> } />
         </Routes>
       </Router>
 
