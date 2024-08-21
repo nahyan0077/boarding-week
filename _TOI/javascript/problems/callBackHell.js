@@ -18,3 +18,9 @@ getUserData(userId).then((res) =>{
 })
 
 
+getUserData(userid).then((userid) => {
+    console.log("hello");
+    return getUserOrders(user.id).then((res) =>{
+        return getProducts(orderId)
+    })
+})
