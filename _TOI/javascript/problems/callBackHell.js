@@ -1,0 +1,20 @@
+//callback hell
+
+getUserData(userId,  (user) => {
+    getUserOrders(user.id, (orderId) => {
+        getProducts(orderId, (productId) => {
+            console.log("productId", productId);
+        })
+    })
+}) 
+
+
+getUserData(userId).then((res) =>{
+    console.log(res);
+    return getUserOrders(user.id).then((res) =>{
+        console.log(res);
+        return getProducts(prouductId)
+    })
+})
+
+
