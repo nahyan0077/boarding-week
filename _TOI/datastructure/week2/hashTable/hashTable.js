@@ -1,16 +1,16 @@
-class HashTableCollision {
+class HashTable {
     constructor(size) {
         this.table = Array(size)
         this.size = size
     }
-    hash(key) {
+    hash(key){
         let total = 0
-        for (let i = 0; i < key.length; i++) {
+        for(let i = 0; i < key.length; i++){
             total += key.charCodeAt(i)
         }
         return total % this.size
     }
-    set(key, value) {
+    set(key, value){
         let index = this.hash(key)
         let bucket = this.table[index]
         if (!bucket) {
@@ -33,33 +33,12 @@ class HashTableCollision {
         }
         return undefined
     }
-    remove(key){
-        let index = this.hash(key)
-        let bucket = this.table[index]
-        if (bucket) {
-            let sameKey = bucket.find((item) => item[0] == key)
-            if (sameKey) {
-                bucket.splice(bucket.indexOf(sameKey))
-            }
-        }
-    }
-    print(){
-        for(let i = 0; i < this.table.length; i++){
-            if (this.table[i]) {
-                console.log(this.table[i]);
-            }
-        }
-    }
 }
 
-const ht = new HashTableCollision(20)
+
+const ht = new HashTable(20)
 
 ht.set("name","nahyan")
-ht.set("name1","ajmal")
-ht.set("eman","ajmal")
-ht.set("age",24)
+ht.set("age",34)
 
-console.log(ht.get("name"));
-
-
-// ht.print()
+console.log(ht.get("name"))
