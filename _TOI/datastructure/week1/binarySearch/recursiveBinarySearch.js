@@ -3,8 +3,7 @@ function recBinarySearch(arr, left, right, target) {
         let mid = Math.floor((right + left) / 2)
         if (arr[mid] == target) {
             return mid
-        }
-        if ( target < arr[mid] ) {
+        }else if ( target < arr[mid] ) {
             return recBinarySearch(arr, left, mid - 1, target)
         }else{
             return recBinarySearch(arr, mid + 1, right, target)

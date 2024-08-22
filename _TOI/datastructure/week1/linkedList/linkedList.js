@@ -148,6 +148,31 @@ class LinkedList {
             curr = curr.next
         }
     }
+    checkPalindrom1(){
+        let slow = this.head
+        let fast = this.head
+        while (fast && fast.next) {
+            slow = slow.next
+            fast = fast.next.next
+        }
+        let curr = slow
+        let prev = null
+        while (curr) {
+            let temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        }
+        let p1 = prev
+        let p2 = this.head
+        while (p1) {
+            if (p1.value != p2.value) {
+                return false
+            }
+            p1 = p1.next
+            p2 = p2.next
+        }
+    }
 }
 
 const li = new LinkedList()
@@ -169,7 +194,9 @@ li.removeDuplicates()
 
 li.print()
 
-console.log(li.checkPalindrom(li.head));
+// console.log(li.checkPalindrom(li.head));
+console.log(li.checkPalindrom1());
+
 
 const list1 = new LinkedList()
 const list2 = new LinkedList()
@@ -239,3 +266,30 @@ function uncommon(list1, list2) {
 }
 
 console.log(uncommon(list1, list2));
+
+
+function mergeList(list1, list2) {
+    const merged = new LinkedList()
+    let curr1 = list1.head
+    let curr2 = list2.head
+    while (curr1 || curr2) {
+        if (!curr1) {
+            merged.append(curr2.value)
+            curr2 = curr2.next
+        }else if (!curr2) {
+            merged.append(curr2.value)
+            curr1 = curr1.next
+        }else{
+            if (curr1.value < curr2.value) {
+                merged.append(curr1.value)
+                curr2 = curr2.next
+            }else{
+                merged.append(curr2.value)
+                curr1 = curr1.next
+            }
+        }
+    }
+    return merged.head
+}
+
+console.log(mergeList(list1, list2));
