@@ -24,3 +24,95 @@ getUserData(userid).then((userid) => {
         return getProducts(orderId)
     })
 })
+
+
+function a(cb) {
+    return new Promise((resolve, reject) => {
+        resolve()
+    })
+}
+function b(cb) {
+    return new Promise((resolve, reject) => {
+        resolve()
+    })
+    
+}
+function c(cb) {
+    return new Promise((resolve, reject) => {
+        resolve()
+    })
+}
+
+a(()=>{
+    b(()=>{
+        c(()=>{
+
+        })
+    })
+})
+
+
+a().then(()=>{
+    b().then(()=>{
+        c().then(()=>{
+
+        })
+    })
+})
+
+const [a,b,c] = await Promise.all([a(),b(),c()])
+
+function a(cb) {
+    cb()
+}
+function b(cb) {
+    cb()
+}
+function c(cb) {
+    cb()
+}
+
+a(()=>{
+    b(()=>{
+        c(()=>{
+
+        })
+    })
+})
+
+
+    
+function a() {
+    return new Promise((res,rej) => {
+        res()
+    })
+}
+function b() {
+    return new Promise((res,rej) => {
+        res()
+    })
+}
+function c() {
+    return new Promise((res,rej) => {
+        res()
+    })
+}
+
+a()
+    .then(()=> b())
+    .then(()=> c())
+    .catch(err=>{
+        console.log(err);
+        
+    })
+
+  async  function execute() {
+        try {
+            await a()
+            await b()
+            await c()
+        } catch (err) {
+            console.log(err);
+            
+        }
+    }
