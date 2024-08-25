@@ -23,3 +23,18 @@ function flatArrRecursion(arr) {
 }
 
 console.log(flatArrRecursion(arr));
+
+
+function flatArray1(arr) {
+    let res = []
+    for(let i = 0; i < arr.length; i++){
+        if (Array.isArray(arr[i])) {
+            res = res.concat(flatArray1(arr[i]))
+        }else{
+            res.push(arr[i])
+        }
+    }
+    return res
+}
+
+console.log(flatArray1(arr));

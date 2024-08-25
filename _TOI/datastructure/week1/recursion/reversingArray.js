@@ -20,3 +20,14 @@ function reverseArrayRecrsion(arr, left = 0, right = arr.length - 1, i = 0) {
 }
 
 console.log(reverseArrayRecrsion(arr));
+
+
+function revArr(arr, i=0) {
+    if (i <= (arr.length / 2)) {
+        return arr
+    }
+    [arr[0], arr[arr.length - 1]] = [ arr[arr.length - 1],arr[0]]
+    return revArr(arr.slice(1,-1),i+1)
+}
+
+console.log("last  ",revArr(arr));

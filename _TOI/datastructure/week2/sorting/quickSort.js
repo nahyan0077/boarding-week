@@ -41,3 +41,42 @@ function quick1(arr) {
 }
 
 console.log(quick1(arr));
+
+
+function quick2(arr) {
+    if (arr.length <= 1) {
+        return arr
+    }
+    let left = []
+    let right = []
+    let pivot = arr[arr.length - 1]
+    for(let i = 0; i < arr.length - 1; i++){
+        if (arr[i] < pivot) {
+            left.push(arr[i])
+        }else{
+            right.push(arr[i])
+        }
+    }
+    return [...quick2(left),pivot, ...quick2(right)]
+}
+
+console.log("last  ",quick2(arr));
+
+
+function quick3(arr) {
+    if(arr.length <= 1) return arr
+    let left = []
+    let right = []
+    let pivot = arr[arr.length - 1]
+    for(let i = 0;  i < arr.length - 1; i++){
+        if (arr[i] < pivot) {
+            left.push(arr[i])
+        }else{
+            right.push(arr[i])
+        }
+    }
+    return [...quick3(left), pivot, ...quick3(right)]
+}
+
+
+console.log("quick3  ", quick3(arr));

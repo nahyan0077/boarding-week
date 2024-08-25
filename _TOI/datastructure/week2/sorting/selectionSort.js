@@ -17,7 +17,7 @@ function selectionSort(arr) {
     return arr
 }
 
-let arr = [32,54,65,7,4,2,6,57,35,23]
+let arr = [32,54,65,7,4,2,6,57,35,23,1]
 
 console.log(selectionSort(arr));
 
@@ -38,3 +38,20 @@ function selection1(arr) {
 }
 
 console.log(selection1(arr));
+
+
+
+function selection2(arr) {
+    for(let i = 0; i < arr.length - 1; i++){
+        let minIndex = i
+        for(let j = i + 1; j < arr.length; j++){
+            if (arr[j] < minIndex) {
+                minIndex = j
+            }
+        }
+        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+    }
+    return arr
+}
+
+console.log("selec  ",selection2(arr));

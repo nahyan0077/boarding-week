@@ -1,11 +1,11 @@
-function fibo(n) {
-    if (n <= 1) {
-        return n
-    }
-    return fibo(n - 1) + fibo( n - 2 )
-}
+// function fibo(n) {
+//     if (n <= 1) {
+//         return n
+//     }
+//     return fibo(n - 1) + fibo( n - 2 )
+// }
 
-console.log(fibo(6));
+// console.log(fibo(6));
 
 // console.log("=========");
 // console.log("=========");
@@ -27,11 +27,39 @@ console.log(fibo(6));
 // console.log("nth fibo   :  ",fibonacci(6))
 
 
-function fubo(n) {
-    if (n <= 1) {
-        return n
+// function fubo(n) {
+//     if (n <= 1) {
+//         return n
+//     }
+//     return fubo(n - 1) + fubo(n - 2)
+// }
+
+// console.log(fubo(6));
+
+
+
+// function fibo(n) {
+//     if (n <= 1) {
+//         return n
+//     }
+//     return fibo(n - 2) + fibo(n - 1)
+// }
+
+// console.log(fibo(6));
+
+
+function fibo(n){
+    let a = -1
+    let b = 1
+    let c
+    for(let i = 0; i < n; i++){
+        c = a + b
+        // console.log(c)
+        a = b
+        b = c
     }
-    return fubo(n - 1) + fubo(n - 2)
+    return c
 }
 
-console.log(fubo(6));
+console.log(fibo(10))
+
