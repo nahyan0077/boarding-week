@@ -55,8 +55,6 @@ class LinkedList {
             }
             console.log(print);
         }
-    }reverse(){
-        
     }
 }
 
