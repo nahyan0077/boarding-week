@@ -179,7 +179,7 @@ function leafNode(root) {
     function dfs(node) {
         if (node) {
             dfs(node.left)
-            if (!node.left && !root.right) {
+            if (!node.left && !node.right) {
                 arr.push(node.value)
             }
             dfs(node.right)
