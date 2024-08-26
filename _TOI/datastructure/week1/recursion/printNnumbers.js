@@ -20,3 +20,16 @@ function printNto1(n) {
 }
 
 printNto1(10)
+
+console.log("===========");
+
+function nNums(n) {
+    if (n <= 0) {
+        return n
+    }
+    console.log(n)
+    nNums(n - 1)
+}
+
+
+nNums(10)

@@ -137,7 +137,7 @@ class LinkedList {
         let dummy = new LinkedList()
         let curr1 = list1.head
         let curr2 = list2.head
-        if (curr1 || curr2) {
+        while (curr1 || curr2) {
             if (!curr1) {
                 dummy.append(curr2.value)
                 curr1 = curr1.next
@@ -177,8 +177,6 @@ class LinkedList {
             curr = curr.next
         }
     }
-
-
 }
 
 const lt = new LinkedList()

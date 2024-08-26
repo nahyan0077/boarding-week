@@ -38,3 +38,20 @@ function flatArray1(arr) {
 }
 
 console.log(flatArray1(arr));
+
+
+function flatNest1(arr, res = []) {
+    if (arr.length == 0) {
+        return res
+    }
+    let [first, ...rest] = arr
+    if (Array.isArray(first)) {
+        return flatNest1([...first,...rest], res)
+    }else{
+        res.push(first)
+    }
+
+    return flatNest1(rest, res)
+}
+
+console.log("new method  ",flatNest1(arr));

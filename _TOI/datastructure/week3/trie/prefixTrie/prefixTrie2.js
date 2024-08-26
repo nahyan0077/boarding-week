@@ -71,7 +71,7 @@ class prefixTrie {
             delete node.children[childNode]
             return Object.keys(node.children).length == 0 && !node.isEnd
         }
-        return false    
+        return false
     }
 }
 

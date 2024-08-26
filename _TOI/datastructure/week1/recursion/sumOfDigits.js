@@ -20,3 +20,14 @@ function sumOfDigRecu(n) {
 }
 
 console.log(sumOfDigRecu(1234));
+
+
+function sumOfDigits1(num, sum = 0) {
+    if (num <= 0) {
+        return sum
+    }
+    sum += (num % 10)
+    return sumOfDigits1(Math.floor(num / 10), sum)
+}
+
+console.log(sumOfDigits1(12311));

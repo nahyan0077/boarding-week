@@ -55,3 +55,23 @@ function selection2(arr) {
 }
 
 console.log("selec  ",selection2(arr));
+
+
+
+function selection3(arr) {
+    let min
+    for(let i = 0; i < arr.length - 1; i++){
+        min = i
+        for(let j = i; j < arr.length; j++){
+            if (arr[j]< arr[min]) {
+                min = j
+            }
+        }
+        if (min != i) {
+            [arr[min], arr[j]] = [arr[j], arr[min]]
+        }
+    }
+    return arr
+}
+
+console.log("last  ",selection3(arr));

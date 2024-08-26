@@ -16,7 +16,7 @@ function revStrRecur(str) {
     if (str.length == 0) {
         return ""
     }
-    return str[str.length - 1] + revStrRecur(str.slice(0,-1))
+    return str[str.length - 1] + revStrRecur(str.slice(0, -1))
 }
 
 console.log(revStrRecur("nahyanisaman"));
@@ -30,7 +30,7 @@ function reverse(str) {
         i--
     }
     console.log(str1);
-    
+
 }
 
 reverse("nahyan ny")
@@ -43,3 +43,16 @@ function recRev(str) {
 }
 
 console.log(recRev("nayhan si eman ym"));
+
+console.log("==============");
+
+
+function revString1(str, i = 0,res="") {
+    if (i == str.length) {
+        return res
+    }
+    res = str[str.length - 1] + revStr(str.slice(0, -1), i + 1,res)
+    return res
+}
+
+console.log(revString1("nahyan"));

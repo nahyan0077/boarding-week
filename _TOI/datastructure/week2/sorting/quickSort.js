@@ -80,3 +80,23 @@ function quick3(arr) {
 
 
 console.log("quick3  ", quick3(arr));
+
+
+function quick4(arr) {
+    if (arr.length <= 1) {
+        return arr
+    }
+    let left = []
+    let right = []
+    let pivot = arr[arr.length - 1]
+    for(let i = 0; i < arr.length - 1; i++){
+        if (arr[i] < pivot) {
+            left.push(arr[i])
+        }else{
+            right.push(arr[i])
+        }
+    }
+    return [...quick4(left),pivot,...quick4(right)]
+}
+
+console.log("last ", quick4(arr));
