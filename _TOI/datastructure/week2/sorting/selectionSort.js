@@ -75,3 +75,20 @@ function selection3(arr) {
 }
 
 console.log("last  ",selection3(arr));
+
+
+function selection4(arr) {
+    let minIndex
+    for(let i = 0; i < arr.length - 1; i++){
+        minIndex = i
+        for(let j = i; j < arr.length; j++){
+            if (arr[i] > arr[j]) {
+                minIndex = j
+            }
+        }
+        [arr[i] , arr[minIndex]] = [arr[minIndex], arr[i]]
+    }
+    return arr
+}
+
+console.log("selection   ",selection4(arr));

@@ -98,6 +98,27 @@ class DoublyLinkedList {
         console.log(str);
         
     }
+
+    removeMid(){
+        if (this.isEmpty()) {
+            return null
+        }
+        let slow = this.head
+        let fast = this.head
+        let prev = null
+        while (fast && fast.next) {
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+        }
+        prev.next = slow.next
+        if (slow.next) {
+            slow.next.prev = prev
+        }else{
+            this.tail = prev
+        }
+        this.size--
+    }
 }
 
 const li = new DoublyLinkedList()
@@ -108,10 +129,12 @@ li.append(3)
 li.append(4)
 li.append(5)
 
-li.print()
+// li.print()
 
 // li.reverse()
 
-li.reverse1()
+// li.reverse1()
+
+li.removeMid()
 
 li.print()

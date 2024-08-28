@@ -161,6 +161,32 @@ class LinkedList {
             curr = curr.next
         }
     }
+    removeNthNodeFromEnd(n){
+        if (this.isEmpty()) {
+            return null
+        }
+        let curr = this.head
+        let count = 0
+        while (curr) {
+            curr = curr.next
+            count++
+        }
+        if (n == count) {
+            this.head = this.head.next
+            this.size--
+            return
+        }
+        let k = count - n - 1
+        let curr1 = this.head
+        let j = 0
+        while (curr1.next && j != k ) {
+            curr1 = curr1.next
+            j++
+        }
+        let rmv = curr1.next
+        curr1.next = rmv.next
+        this.size--
+    }
 
 }
 
@@ -186,9 +212,9 @@ li.prepend(5)
 // console.log(li.lastThree());
 
 // li.removeDup()
-li.sort()
+// li.sort()
 
-li.print()
+
 
 function merge(list1, list2) {
     const li1 = new LinkedList()
@@ -214,6 +240,35 @@ function merge(list1, list2) {
     return li1
 }
 
-let mergeList = merge(li.head,li.head)
-mergeList.print()
+// let mergeList = merge(li.head,li.head)
+// mergeList.print()
 
+
+function removeDups(list) {
+    if (list.isEmpty()) {
+        return null
+    }
+    let curr = list.head
+    while (curr) {
+        let check = curr.next
+        let prev = curr
+        while (check) {
+            if (curr.value == check.value) {
+                prev.next = check.next
+                check = prev.next
+            }else{
+                prev = check
+                check = check.next
+            }
+        }
+        curr = curr.next
+    }
+    return list
+}
+
+
+// removeDups(li).print()
+
+// li.removeNthNodeFromEnd(7)
+
+li.print()
