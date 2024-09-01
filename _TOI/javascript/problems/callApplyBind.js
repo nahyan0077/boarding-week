@@ -18,3 +18,8 @@ person.fullName.call(obj)
 
 console.log(obj)
 obj.fullName
+
+
+const newObj = new Object()
+
+person.fullName.call(newObj)

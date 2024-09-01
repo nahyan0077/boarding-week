@@ -116,3 +116,16 @@ a()
             
         }
     }
+
+
+    async function test() {
+        let a = await a()
+        let b = await b()
+        let c = await c()
+    }
+
+    function prom() {
+        return new Promise((res, rej) => {
+            res()
+        })
+    }
