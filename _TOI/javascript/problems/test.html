@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>
+        Helloo
+    </h2>
+    <div class="color1" style="height: 50px; width: 50px; background-color: blue;margin: 3px;" >
+
+    </div>
+    <div class="color1" style="height: 50px; width: 50px; background-color: blue;margin: 3px;" >
+
+    </div>
+    <div class="color1" style="height: 50px; width: 50px; background-color: blue;margin: 3px;" >
+
+    </div>
+    <div class="color1" style="height: 50px; width: 50px; background-color: blue;margin: 3px;" >
+
+    </div>
+
+<script>
+    console.log("hello");
+
+    const events = document.querySelectorAll('.color1')
+
+    console.log(events);
+    
+    events.forEach((ele) =>{
+        ele.addEventListener('click',()=>{
+            if (ele.style.backgroundColor == 'blue') {
+                ele.style.backgroundColor = 'green'
+            }else{
+                ele.style.backgroundColor = 'blue'
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

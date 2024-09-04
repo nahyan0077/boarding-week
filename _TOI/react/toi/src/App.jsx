@@ -5,6 +5,8 @@ import { UseEffect } from "./components/useEffect";
 import Timer from "./components/Timer";
 import Interval from "./components/Interval";
 import { Search } from "./components/search";
+import Test from "./components/Test";
+import TestHoc1 from "./components/TestHoc1";
 
 function App() {
 
@@ -14,7 +16,9 @@ function App() {
       {/* <UseEffect /> */}
       {/* <Timer /> */}
       {/* <Interval /> */}
-      <Search />
+      {/* <Search /> */}
+      {/* <Test /> */}
+      <TestHoc1 />
     </>
   );
 }
