@@ -100,3 +100,24 @@ function quick4(arr) {
 }
 
 console.log("last ", quick4(arr));
+
+
+
+function quick33(arr) {
+    if (arr.length <= 1) {
+        return arr
+    }
+    let pivot = arr[arr.length - 1]
+    let left = []
+    let right = []
+    for(let i = 0; i < arr.length - 1; i++){
+        if (arr[i] > pivot) {
+            left.push(arr[i])
+        }else{
+            right.push(arr[i])
+        }
+    }
+    return [...quick33(left),pivot, ...quick33(right)]
+}
+
+console.log(" 33 -->  ",quick33(arr));

@@ -27,7 +27,7 @@ function insertion1(arr) {
         let key = arr[i]
         let j = i - 1
         while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j]
+            arr[j + 1] = arr[i]
             j--
         }
         arr[j + 1] = key
@@ -84,3 +84,20 @@ function insertion3(arr) {
 }
 
 console.log("last 2 ",insertion3(arr));
+
+
+
+function insertion33(arr) {
+    for(let i = 1; i < arr.length; i++){
+        let min = arr[i]
+        let j = i - 1
+        while (j >= 0 && arr[j] < min) {
+            arr[j + 1] = arr[j]
+            j--
+        }
+        arr[j + 1] = min
+    }
+    return arr
+}
+
+console.log("33 -->  ",insertion33(arr));
