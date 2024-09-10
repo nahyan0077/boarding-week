@@ -15,6 +15,8 @@ import  UseMemo  from "./components/useMemo/useMemo";
 import UseMemo1 from "./components/useMemo/UseMemo1";
 import ForwardRef from "./components/forwardRef/ForwardRef";
 import RenderProps from "./components/renderProps/RenderProps";
+import SearchSugg from "./components/SearchSuggesions/SearchSugg";
+import Calculator from "./components/calculator/Calculator";
 
 
 function App() {
@@ -35,7 +37,9 @@ function App() {
       {/* <UseMemo /> */}
       {/* <UseMemo1 /> */}
       {/* <ForwardRef /> */}
-      <RenderProps />
+      {/* <RenderProps /> */}
+      {/* <SearchSugg /> */}
+      {/* <Calculator /> */}
     </>
   );
 }
