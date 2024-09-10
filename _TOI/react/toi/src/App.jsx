@@ -13,6 +13,8 @@ import TestHoc21 from "./components/TestHoc21";
 import Callback from "./components/callback/Callback";
 import  UseMemo  from "./components/useMemo/useMemo";
 import UseMemo1 from "./components/useMemo/UseMemo1";
+import ForwardRef from "./components/forwardRef/ForwardRef";
+import RenderProps from "./components/renderProps/RenderProps";
 
 
 function App() {
@@ -31,7 +33,9 @@ function App() {
       {/* <TestHoc21 /> */}
       {/* <Callback /> */}
       {/* <UseMemo /> */}
-      <UseMemo1 />
+      {/* <UseMemo1 /> */}
+      {/* <ForwardRef /> */}
+      <RenderProps />
     </>
   );
 }
