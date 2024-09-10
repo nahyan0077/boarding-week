@@ -10,6 +10,10 @@ import TestHoc1 from "./components/TestHoc1";
 import MyComponet from "./components/Classes";
 import Dropdown from "./components/Dropdown";
 import TestHoc21 from "./components/TestHoc21";
+import Callback from "./components/callback/Callback";
+import  UseMemo  from "./components/useMemo/useMemo";
+import UseMemo1 from "./components/useMemo/UseMemo1";
+
 
 function App() {
 
@@ -24,7 +28,10 @@ function App() {
       {/* <TestHoc1 /> */}
       {/* <MyComponet /> */}
       {/* <Dropdown /> */}
-      <TestHoc21 />
+      {/* <TestHoc21 /> */}
+      {/* <Callback /> */}
+      {/* <UseMemo /> */}
+      <UseMemo1 />
     </>
   );
 }
