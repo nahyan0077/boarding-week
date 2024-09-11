@@ -18,6 +18,7 @@ import RenderProps from "./components/renderProps/RenderProps";
 import SearchSugg from "./components/SearchSuggesions/SearchSugg";
 import Calculator from "./components/calculator/Calculator";
 import UseImperativeHandle from "./components/forwardRef/UseImperativeHandle";
+import LoadMore from "./components/loadMore/LoadMore";
 
 
 function App() {
@@ -41,7 +42,8 @@ function App() {
       {/* <RenderProps /> */}
       {/* <SearchSugg /> */}
       {/* <Calculator /> */}
-      <UseImperativeHandle />
+      {/* <UseImperativeHandle /> */}
+      <LoadMore />
     </>
   );
 }
