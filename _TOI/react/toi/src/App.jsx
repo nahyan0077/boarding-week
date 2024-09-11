@@ -17,6 +17,7 @@ import ForwardRef from "./components/forwardRef/ForwardRef";
 import RenderProps from "./components/renderProps/RenderProps";
 import SearchSugg from "./components/SearchSuggesions/SearchSugg";
 import Calculator from "./components/calculator/Calculator";
+import UseImperativeHandle from "./components/forwardRef/UseImperativeHandle";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
       {/* <RenderProps /> */}
       {/* <SearchSugg /> */}
       {/* <Calculator /> */}
+      <UseImperativeHandle />
     </>
   );
 }
