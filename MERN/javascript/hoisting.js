@@ -9,7 +9,7 @@ abc()
 
 //function declaration
 function abc() {
-    console.log("hoisted");
+    console.log("hoisted abc");
 }
 abc()
 
@@ -17,7 +17,7 @@ abc()
 
 
 let abc1 = () => {
-    console.log("hoisted1");
+    console.log("hoisted abc1");
 };
 abc1();
 

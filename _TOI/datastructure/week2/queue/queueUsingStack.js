@@ -6,7 +6,7 @@ class Queue {
     enqueue(value){
         this.stack1.push(value)
     }
-    dequeue(){
+    dequeue(){       
         if (this.stack1.length == 0) {
             return null
         }

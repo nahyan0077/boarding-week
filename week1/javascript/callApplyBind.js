@@ -20,7 +20,6 @@ let x = obj1.present.bind(obj2, 34, 567)
 x();
 
 function fullName(lastName) {
-
     console.log(this.name + " " + lastName);
 }
 
