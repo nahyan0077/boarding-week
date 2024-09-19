@@ -82,4 +82,32 @@ function firstCap(str) {
 console.log(firstCap(str));
 
 
+//first non-repleating element in the array
 
+let arr1 = [-2, 3, -2, 3, 1]
+let map = new Map()
+for(let i = 0; i < arr1.length; i++){
+    if(map.has(arr1[i])){
+        map.set(arr1[i], map.get(arr1[i]) + 1)
+    }else{
+        map.set(arr1[i], 1)
+    }
+}
+
+
+console.log([...map.entries()].sort((a,b)=>a[1]-b[1])[0][0])
+
+//find out the smallest number that is repeated exactly ‘k’ times 
+
+let arr2 = [2, 1, 4, 4, 3, 1, 2, 2, 4]
+let k = 3
+let map1 = new Map()
+for(let i = 0; i < arr2.length; i++){
+    if(map1.has(arr2[i])){
+        map1.set(arr2[i], map1.get(arr2[i]) + 1)
+    }else{
+        map1.set(arr2[i], 1)
+    }
+}
+
+console.log([...map1.entries()].filter((ele)=>ele[1] == k).map(ele1=>ele1[0]));
