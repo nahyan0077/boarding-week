@@ -7,6 +7,8 @@ import Dropdown from './components/Dropdown'
 import ForwardRef from './components/ForwardRef'
 import ErrorBoundary from './components/ErrorBoundary'
 import ErrorBoundary1 from './components/ErrorBoundary1'
+import UseCallBack from './components/UseCallBack'
+import RenderProps from './components/RenderProps'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,14 +20,15 @@ function App() {
       {/* <Debounce /> */}
       {/* <Counter /> */}
       {/* <UseMemo /> */}
-      <ErrorBoundary1 >
+      {/* <ErrorBoundary1 >
         <Dropdown />
-      </ErrorBoundary1>
+      </ErrorBoundary1> */}
 
-      {/* <ErrorBoundary>
+
         <ForwardRef />
 
-      </ErrorBoundary> */}
+      {/* <UseCallBack /> */}
+      {/* <RenderProps /> */}
     </>
   )
 }

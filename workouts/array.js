@@ -45,3 +45,40 @@ function freq(arr) {
 }
 
 console.log(freq(arr3));
+
+
+//find first and second min 
+
+let min1 = Infinity
+let min2 = Infinity
+for(let ele of [...new Set(arr3)]){
+    if(ele < min1){
+        min2 = min1
+        min1 = ele
+    }else if(min1 != min2 && ele < min2){
+        min2 = ele
+    }
+}
+console.log("min1 and min2  ",min1, min2);
+
+
+//sum of digits
+
+let dig = 32453453
+let sum = 0
+while (dig > 0) {
+    let rem = dig % 10
+    sum += rem
+    dig = Math.floor(dig / 10)
+}
+console.log(sum)
+
+
+
+///flat maps
+
+let arrr = Array.from({length:10},(_,i) => i + 1)
+
+console.log(arrr)
+
+console.log(arrr.flatMap(ele => [ ele * 2]))

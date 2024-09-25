@@ -1,8 +1,20 @@
-import React, { forwardRef, useRef } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 
 const InputChild = forwardRef((props, ref) => {
+
+  const inputRef = useRef()
+
+  const changeBg = () => {
+    inputRef.current.style.backgroundColor = 'red'
+  }
+
+  useImperativeHandle(ref,()=> ({
+    changeBg
+  }))
+
+
   return (
-    <input type={props.type} ref={ref} />
+    <input type={props.type} ref={inputRef} />
   )
 })
 
@@ -11,8 +23,10 @@ const ForwardRef = () => {
 
   const inputRef = useRef()
   const handleClick = () => {
-    console.log(inputRef.current);
-    inputRef.current.style.backgroundColor = 'red'
+    if (inputRef.current) {
+      inputRef.current.changeBg()
+      
+    }
   }
 
   return (
