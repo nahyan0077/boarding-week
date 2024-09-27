@@ -97,7 +97,7 @@ function isValidBST(root, min = null, max = null) {
     }
     if (min != null && min > root.value || max != null && max < root.value) {
         return false
-    }
+    }       
     return isValidBST(root.left, min, root.value) && isValidBST(root.right, root.value, max)
 }
 
