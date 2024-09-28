@@ -40,3 +40,5 @@ function subarrySum(arr) {
 
 console.log(subarrySum(arr))
 
+
+
