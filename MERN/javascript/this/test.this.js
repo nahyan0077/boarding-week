@@ -32,6 +32,16 @@ function funConstructor(name, age) {
     
 }
 
+//the above func and the below class is same
+class funConstructor {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        console.log(`${this.name}  ===   ${this.age}`);
+
+    }
+}
+
 const res = new funConstructor("nahya", 454)  // this refers to the newly created object.
 
 console.log(res);
