@@ -40,3 +40,18 @@ adder1("1","2")
 // adder1([],[])  //this type is not defined in func overloading
 
 
+// ====== Generics =========
+
+// Generics are a feature in TypeScript that allows you to create reusable components 
+// that work with a variety of data types while maintaining type safety. Generics enable 
+// you to write flexible, type-safe functions, classes, and interfaces that can work with 
+// different types, without losing the benefits of static typing.
+
+function getName <T> (name:T) : T {
+    return name
+}
+
+//here we can use diffrent types as the argument with out expicitly defining it
+getName <number> (23)
+//here we can define the type like this or ts will infer it
+getName("nahyan")
