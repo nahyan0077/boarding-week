@@ -47,3 +47,10 @@ let adminData1 : Admin3= {
     role: "admin",
     age: 25
 }
+
+
+//==== as const ===
+
+let myName = "nahyan" as const
+// myName = "helloo"  //this cant be changed makes it readonly
+
