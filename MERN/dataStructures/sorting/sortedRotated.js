@@ -1,5 +1,7 @@
 let arr = [3, 4, 5, 6, 7, 8, 1, 2]
 
+//here we are checking the array is sorted sorted and rotated
+
 function sortedRotated(arr) {
     let n = arr.length
     let countInversion = 0
