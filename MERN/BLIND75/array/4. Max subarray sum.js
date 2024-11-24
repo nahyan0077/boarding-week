@@ -45,3 +45,17 @@ function maxSubArray1(arr) {
 }
 
 console.log(maxSubArray1(arr));
+
+
+
+function maxSubArraySum1(arr) {
+    let curr = arr[0]
+    let max = arr[0]
+    for(let i = 1; i < arr.length; i++){
+        curr = Math.max(curr + arr[i], arr[i])
+        max = Math.max(curr, max)
+    }
+    return max
+}
+
+console.log(maxSubArraySum1(arr))
